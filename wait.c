@@ -13,8 +13,17 @@ int main(){
         // child
         printf("Hello from the child, pid: %d\n", (int)getpid());
     } else {
-        // master
-        int cpid = wait(0);
+        // parent
+
+        int status;
+        // Write a slight modification of the previous program, this time using waitpid() instead of wait()
+        // useful in case of multiple chile processes.
+        
+        int cpid = waitpid(rc, &status, 0);
+        //  pid_t waitpid(pid_t pid, int *stat_loc, int options);
+
+
+        // int cpid = wait(0);
         /* wait():
            on success, returns the process ID of the terminated child;
            on error, -1 is returned.
