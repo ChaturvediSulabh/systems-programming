@@ -8,6 +8,7 @@ int main(){
     int rc = fork();
     if (rc < 0){
         printf("fork failed");
+        exit(1);
     } else if (rc == 0){
         printf("Hello\n");
         // child
